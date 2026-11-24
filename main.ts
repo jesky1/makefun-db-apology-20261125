@@ -19,6 +19,7 @@ export function screenApology(line: string): string | null {
   if (!/[A-Za-z]/.test(line)) return 'no letters';
   if (line.trim() !== line) return 'leading or trailing whitespace';
   if (line.toLowerCase().includes('http')) return 'links not allowed';
+  if (!/sorry|apolog/i.test(line)) return 'not an apology';
   if (line.split(/\s+/).length < MIN_WORDS) {
     return `fewer than ${MIN_WORDS} words`;
   }

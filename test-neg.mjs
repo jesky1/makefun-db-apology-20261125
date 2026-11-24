@@ -47,3 +47,11 @@ test('links are rejected', () => {
 test('fewer than five words is rejected', () => {
   assert.notEqual(screenApology('sorry database gone'), null);
 });
+
+test('a line without an apology is rejected', () => {
+  assert.notEqual(screenApology('I deleted the production database today'), null);
+});
+
+test('invisible zero-width characters are rejected', () => {
+  assert.notEqual(screenApology('sorry I deleted the database\u200b'), null);
+});
