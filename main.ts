@@ -15,6 +15,7 @@ export function screenApology(line: string): string | null {
   if (line.trim().length === 0) return 'blank entry';
   if (line.includes('\n') || line.includes('\r')) return 'must be one line';
   if (/[\u0000-\u001f\u007f]/.test(line)) return 'control character found';
+  if (/[\u200b-\u200f\ufeff]/.test(line)) return 'invisible character found';
   if (!/[A-Za-z]/.test(line)) return 'no letters';
   if (line.trim() !== line) return 'leading or trailing whitespace';
   if (line.toLowerCase().includes('http')) return 'links not allowed';
