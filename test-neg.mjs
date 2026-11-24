@@ -11,7 +11,7 @@ test('201 characters is rejected', () => {
 });
 
 test('exactly 200 characters is accepted', () => {
-  assert.equal(screenApology('word '.repeat(39) + 'words'), null);
+  assert.equal(screenApology('sorry ' + 'word '.repeat(38) + 'word'), null);
 });
 
 test('whitespace-only is rejected', () => {
